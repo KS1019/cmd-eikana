@@ -1,0 +1,16 @@
+name: xcodebuild
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-on-mac:
+    name: Build on macOS
+    runs-on: [macos-10.15, macos-11, macos-12]
+      - uses: actions/checkout@v3
+      - run: swift --version
+      - run: xcodebuild -project ⌘英かな.xcodeproj -config Release
